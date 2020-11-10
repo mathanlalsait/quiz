@@ -1,16 +1,41 @@
-<h1>{{data}}</h1>
-<div class="container mt-sm-5 my-1">
-    <div class="question ml-sm-5 pl-sm-5 pt-2">
-        <div class="py-2 h5"><b>1.What is the minimum age to be appointed as the Chief Minister of a state?</b></div>
-        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-            <label class="options">25 Years <input type="radio" name="radio"> <span class="checkmark"></span> </label> 
-            <label class="options">23 Years <input type="radio" name="radio"> <span class="checkmark"></span> </label> 
-            <label class="options">30 Years<input type="radio" name="radio"> <span class="checkmark"></span> </label> 
-            <label class="options">28 Years <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
-    </div>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4><b>{{data}}</b></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Time Remaining:</h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-success style btn-lg globalSubmitButton">Submit</button>
+                    </div>
+                </div>
 
-    <div class="d-flex align-items-center pt-3">
-        <div id="prev"> <button class="btn btn-success">Previous</button> </div>
-        <div class="ml-auto mr-sm-5"> <button class="btn btn-success">Next</button> </div>
+                <hr class="hrLine"><br>
+
+                <div class="row horizontal p-2" *ngFor="let question of questions;let i = index">
+                    <button class="btn btn-light btn-circle btn-sm btn-outline-secondary"
+                        (click)="onClick(question,i)">{{question.qnumber}}</button>
+                </div>
+            </div>
+            <div class="container mt-sm-5 my-1">
+                <div class="question ml-sm-5 pl-sm-5 pt-2">
+                    <div class="py-2 h5"><b>{{currentQuestion.qnumber}}.{{currentQuestion.label}}</b></div>
+                    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                        <label class="options" *ngFor="let choice of currentQuestion.choices">{{choice.value}} <input
+                                type="radio" name="radio" (click)="onChoiceClick(choice)"> <span class="checkmark"></span> </label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center pt-3">
+                <div id="prev"> <button class="btn btn-info style btn-lg" (click)="nextAndPrevious('previous')">Previous</button> </div>
+                <div class="ml-auto mr-sm-5"> <button class="btn btn-info style btn-lg" (click)="nextAndPrevious('next')">Next</button> </div>
+            </div>
+
+        </div>
     </div>
 </div>

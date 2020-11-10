@@ -1,0 +1,35 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <h1><b>Guidelines to take the Quiz</b></h1>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Quiz Name</td>
+                    <td>{{title}}</td>
+                </tr>
+                <tr>
+                    <td>No.of Questions</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td>20 Mins</td>
+                </tr>
+                <tr>
+                    <td>Pass percentage</td>
+                    <td>50%</td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="mx-auto buttonPosition">
+    <a routerLink="/question/{{title}}" type="button" class="btn btn-info">Start Quiz</a>
+</div>
+
